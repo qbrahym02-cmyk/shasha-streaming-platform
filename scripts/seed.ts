@@ -13,32 +13,27 @@ function hashPassword(password: string): string {
 const P = (slug: string) => `/posters/${slug}.jpg`;
 const B = (slug: string) => `/backdrops/${slug}.jpg`;
 
-// روابط عامة معروفة للاختبار (HLS) + نسخ احتياطية MP4 من Google Sample Videos
+// روابط عامة معروفة وموثقة (HLS) — جميعها مُتحقق منها + نسخ احتياطية لنفس المحتوى عبر CDN مختلف
 const SRC = {
   bunny: {
     type: 'hls',
     url: 'https://stream.mux.com/v69RSHhFelSm4701snP22dYz2jICy4E4FUyk02rW4gxRM.m3u8',
-    fb: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-  },
-  sintel: {
-    type: 'hls',
-    url: 'https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8',
-    fb: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4',
+    fb: 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8',
   },
   tos: {
     type: 'hls',
     url: 'https://test-streams.mux.dev/tos_ismc/main.m3u8',
-    fb: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4',
-  },
-  elephants: {
-    type: 'mp4',
-    url: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
-    fb: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+    fb: 'https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8',
   },
   bipbop: {
     type: 'hls',
     url: 'https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_fmp4/master.m3u8',
-    fb: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4',
+    fb: 'https://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8',
+  },
+  quality: {
+    type: 'hls',
+    url: 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8',
+    fb: 'https://stream.mux.com/v69RSHhFelSm4701snP22dYz2jICy4E4FUyk02rW4gxRM.m3u8',
   },
 };
 
@@ -172,9 +167,7 @@ const titles: SeedTitle[] = [
     ageRating: '+13',
     score: 8.4,
     durationMin: 15,
-    sourceType: SRC.sintel.type,
-    sourceUrl: SRC.sintel.url,
-    fallbackUrl: SRC.sintel.fb,
+    releaseState: 'coming_soon',
     trending: 4,
     genres: ['fantasy', 'adventure', 'animation'],
   },
@@ -199,6 +192,25 @@ const titles: SeedTitle[] = [
     genres: ['comedy', 'family', 'animation'],
   },
   {
+    slug: 'quality-lab',
+    type: 'MOVIE',
+    titleAr: 'مختبر الجودات',
+    titleEn: 'Quality Lab',
+    synopsisAr:
+      'جرّب بنفسك خمسة مستويات جودة (من 240p حتى 1080p) لنفس الفيلم: افتح قائمة الجودة في المشغل وبدّل بينها وراقب الفرق لحظياً. عرض تفاعلي لتقنية البث المتكيف.',
+    synopsisEn:
+      'Try five quality levels (240p to 1080p) of the same film: open the quality menu in the player, switch levels and watch the difference live. An interactive adaptive-streaming demo.',
+    poster: P('big-buck-bunny'),
+    year: 2024,
+    ageRating: 'للجميع',
+    score: 7.7,
+    durationMin: 10,
+    sourceType: SRC.quality.type,
+    sourceUrl: SRC.quality.url,
+    fallbackUrl: SRC.quality.fb,
+    genres: ['tech', 'family'],
+  },
+  {
     slug: 'elephants-dream',
     type: 'MOVIE',
     titleAr: 'حلم الفيلة',
@@ -212,9 +224,7 @@ const titles: SeedTitle[] = [
     ageRating: '+13',
     score: 7.1,
     durationMin: 11,
-    sourceType: SRC.elephants.type,
-    sourceUrl: SRC.elephants.url,
-    fallbackUrl: SRC.elephants.fb,
+    releaseState: 'coming_soon',
     genres: ['fantasy', 'mystery', 'animation'],
   },
   {
@@ -242,9 +252,9 @@ const titles: SeedTitle[] = [
     titleAr: 'عوالم مفتوحة المصدر',
     titleEn: 'Open Worlds',
     synopsisAr:
-      'أنثولوجيا تجمع أبرز الأفلام المفتوحة المصدر في موسم واحد: من غابة الأرنب العملاق إلى جبال سينتل المتجمدة ومعارك دموع الفولاذ. كل حلقة عالم مختلف، والحلقة الأولى مجانية للجميع.',
+      'أنثولوجيا تجمع أبرز تجارب البث المفتوحة في موسم واحد: من غابة الأرنب العملاق إلى معارك دموع الفولاذ وعرض المشغل متعدد اللغات. كل حلقة عالم مختلف، والحلقة الأولى مجانية للجميع.',
     synopsisEn:
-      'An anthology bringing together the best open-source films in one season: from the Big Buck Bunny forest to Sintel frozen mountains and Tears of Steel battles. Every episode is a different world — the first episode is free for everyone.',
+      'An anthology bringing together the best open streaming experiments in one season: from the Big Buck Bunny forest to Tears of Steel battles and the multilingual player showcase. Every episode is a different world — the first episode is free for everyone.',
     poster: P('open-worlds'),
     year: 2024,
     ageRating: '+13',
@@ -253,10 +263,9 @@ const titles: SeedTitle[] = [
     genres: ['animation', 'adventure', 'scifi'],
     episodes: [
       { number: 1, nameAr: 'الأرنب العملاق', nameEn: 'Big Buck Bunny', durationMin: 10, sourceType: SRC.bunny.type, sourceUrl: SRC.bunny.url, fallbackUrl: SRC.bunny.fb, isPremium: false },
-      { number: 2, nameAr: 'سينتل', nameEn: 'Sintel', durationMin: 15, sourceType: SRC.sintel.type, sourceUrl: SRC.sintel.url, fallbackUrl: SRC.sintel.fb, isPremium: true },
+      { number: 2, nameAr: 'مختبر الجودات', nameEn: 'Quality Lab', durationMin: 10, sourceType: SRC.quality.type, sourceUrl: SRC.quality.url, fallbackUrl: SRC.quality.fb, isPremium: true },
       { number: 3, nameAr: 'دموع الفولاذ', nameEn: 'Tears of Steel', durationMin: 12, sourceType: SRC.tos.type, sourceUrl: SRC.tos.url, fallbackUrl: SRC.tos.fb, isPremium: true },
-      { number: 4, nameAr: 'حلم الفيلة', nameEn: "Elephants' Dream", durationMin: 11, sourceType: SRC.elephants.type, sourceUrl: SRC.elephants.url, fallbackUrl: SRC.elephants.fb, isPremium: true },
-      { number: 5, nameAr: 'عرض المشغل التقني', nameEn: 'BipBop Showcase', durationMin: 30, sourceType: SRC.bipbop.type, sourceUrl: SRC.bipbop.url, fallbackUrl: SRC.bipbop.fb, isPremium: true },
+      { number: 4, nameAr: 'عرض المشغل التقني', nameEn: 'Player Showcase', durationMin: 30, sourceType: SRC.bipbop.type, sourceUrl: SRC.bipbop.url, fallbackUrl: SRC.bipbop.fb, isPremium: true },
     ],
   },
 

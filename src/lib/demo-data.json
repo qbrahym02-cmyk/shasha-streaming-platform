@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-13T20:53:11.823Z",
+ "generatedAt": "2026-11-13T21:14:48.563Z",
  "titles": [
   {
    "id": "cmwfersuy000hlz851m0gbg6c",
@@ -97,7 +97,7 @@
    "durationMin": 12,
    "sourceType": "hls",
    "sourceUrl": "https://test-streams.mux.dev/tos_ismc/main.m3u8",
-   "fallbackUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
+   "fallbackUrl": "https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8",
    "isPremium": true,
    "releaseState": "released",
    "featured": true,
@@ -130,11 +130,11 @@
    "ageRating": "+13",
    "score": 8.4,
    "durationMin": 15,
-   "sourceType": "hls",
-   "sourceUrl": "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8",
-   "fallbackUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
+   "sourceType": null,
+   "sourceUrl": null,
+   "fallbackUrl": null,
    "isPremium": false,
-   "releaseState": "released",
+   "releaseState": "coming_soon",
    "featured": false,
    "trending": 4,
    "genres": [
@@ -172,7 +172,7 @@
    "durationMin": 10,
    "sourceType": "hls",
    "sourceUrl": "https://stream.mux.com/v69RSHhFelSm4701snP22dYz2jICy4E4FUyk02rW4gxRM.m3u8",
-   "fallbackUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+   "fallbackUrl": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
    "isPremium": false,
    "releaseState": "released",
    "featured": false,
@@ -210,11 +210,11 @@
    "ageRating": "+13",
    "score": 7.1,
    "durationMin": 11,
-   "sourceType": "mp4",
-   "sourceUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-   "fallbackUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+   "sourceType": null,
+   "sourceUrl": null,
+   "fallbackUrl": null,
    "isPremium": false,
-   "releaseState": "released",
+   "releaseState": "coming_soon",
    "featured": false,
    "trending": null,
    "genres": [
@@ -252,7 +252,7 @@
    "durationMin": 30,
    "sourceType": "hls",
    "sourceUrl": "https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_fmp4/master.m3u8",
-   "fallbackUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+   "fallbackUrl": "https://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8",
    "isPremium": false,
    "releaseState": "released",
    "featured": false,
@@ -272,8 +272,8 @@
    "type": "SERIES",
    "titleAr": "عوالم مفتوحة المصدر",
    "titleEn": "Open Worlds",
-   "synopsisAr": "أنثولوجيا تجمع أبرز الأفلام المفتوحة المصدر في موسم واحد: من غابة الأرنب العملاق إلى جبال سينتل المتجمدة ومعارك دموع الفولاذ. كل حلقة عالم مختلف، والحلقة الأولى مجانية للجميع.",
-   "synopsisEn": "An anthology bringing together the best open-source films in one season: from the Big Buck Bunny forest to Sintel frozen mountains and Tears of Steel battles. Every episode is a different world — the first episode is free for everyone.",
+   "synopsisAr": "أنثولوجيا تجمع أبرز تجارب البث المفتوحة في موسم واحد: من غابة الأرنب العملاق إلى معارك دموع الفولاذ وعرض المشغل متعدد اللغات. كل حلقة عالم مختلف، والحلقة الأولى مجانية للجميع.",
+   "synopsisEn": "An anthology bringing together the best open streaming experiments in one season: from the Big Buck Bunny forest to Tears of Steel battles and the multilingual player showcase. Every episode is a different world — the first episode is free for everyone.",
    "poster": "/posters/open-worlds.jpg",
    "backdrop": null,
    "year": 2024,
@@ -306,7 +306,7 @@
    ],
    "episodes": [
     {
-     "id": "cmwfersvm000qlz85paaf87qy",
+     "id": "cmwfh6aps000rlzehi17wbwzj",
      "season": 1,
      "number": 1,
      "nameAr": "الأرنب العملاق",
@@ -314,23 +314,23 @@
      "durationMin": 10,
      "sourceType": "hls",
      "sourceUrl": "https://stream.mux.com/v69RSHhFelSm4701snP22dYz2jICy4E4FUyk02rW4gxRM.m3u8",
-     "fallbackUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+     "fallbackUrl": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
      "isPremium": false
     },
     {
-     "id": "cmwfersvn000slz85cc0ynen8",
+     "id": "cmwfh6aps000tlzeha3ii6v69",
      "season": 1,
      "number": 2,
-     "nameAr": "سينتل",
-     "nameEn": "Sintel",
-     "durationMin": 15,
+     "nameAr": "مختبر الجودات",
+     "nameEn": "Quality Lab",
+     "durationMin": 10,
      "sourceType": "hls",
-     "sourceUrl": "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8",
-     "fallbackUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
+     "sourceUrl": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
+     "fallbackUrl": "https://stream.mux.com/v69RSHhFelSm4701snP22dYz2jICy4E4FUyk02rW4gxRM.m3u8",
      "isPremium": true
     },
     {
-     "id": "cmwfersvn000ulz855iexmeeh",
+     "id": "cmwfh6apt000vlzehgj72qkxl",
      "season": 1,
      "number": 3,
      "nameAr": "دموع الفولاذ",
@@ -338,31 +338,19 @@
      "durationMin": 12,
      "sourceType": "hls",
      "sourceUrl": "https://test-streams.mux.dev/tos_ismc/main.m3u8",
-     "fallbackUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
+     "fallbackUrl": "https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8",
      "isPremium": true
     },
     {
-     "id": "cmwfersvo000wlz852vh9q1wv",
+     "id": "cmwfh6apu000xlzehhmevow17",
      "season": 1,
      "number": 4,
-     "nameAr": "حلم الفيلة",
-     "nameEn": "Elephants' Dream",
-     "durationMin": 11,
-     "sourceType": "mp4",
-     "sourceUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-     "fallbackUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-     "isPremium": true
-    },
-    {
-     "id": "cmwfersvo000ylz85rq1ou928",
-     "season": 1,
-     "number": 5,
      "nameAr": "عرض المشغل التقني",
-     "nameEn": "BipBop Showcase",
+     "nameEn": "Player Showcase",
      "durationMin": 30,
      "sourceType": "hls",
      "sourceUrl": "https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_fmp4/master.m3u8",
-     "fallbackUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+     "fallbackUrl": "https://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8",
      "isPremium": true
     }
    ]
@@ -738,6 +726,41 @@
      "slug": "mystery",
      "nameAr": "غموض",
      "nameEn": "Mystery"
+    }
+   ],
+   "episodes": []
+  },
+  {
+   "id": "cmwfh6aph000mlzehdpqpjbdq",
+   "slug": "quality-lab",
+   "type": "MOVIE",
+   "titleAr": "مختبر الجودات",
+   "titleEn": "Quality Lab",
+   "synopsisAr": "جرّب بنفسك خمسة مستويات جودة (من 240p حتى 1080p) لنفس الفيلم: افتح قائمة الجودة في المشغل وبدّل بينها وراقب الفرق لحظياً. عرض تفاعلي لتقنية البث المتكيف.",
+   "synopsisEn": "Try five quality levels (240p to 1080p) of the same film: open the quality menu in the player, switch levels and watch the difference live. An interactive adaptive-streaming demo.",
+   "poster": "/posters/big-buck-bunny.jpg",
+   "backdrop": null,
+   "year": 2024,
+   "ageRating": "للجميع",
+   "score": 7.7,
+   "durationMin": 10,
+   "sourceType": "hls",
+   "sourceUrl": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
+   "fallbackUrl": "https://stream.mux.com/v69RSHhFelSm4701snP22dYz2jICy4E4FUyk02rW4gxRM.m3u8",
+   "isPremium": false,
+   "releaseState": "released",
+   "featured": false,
+   "trending": null,
+   "genres": [
+    {
+     "slug": "family",
+     "nameAr": "عائلي",
+     "nameEn": "Family"
+    },
+    {
+     "slug": "tech",
+     "nameAr": "تقني",
+     "nameEn": "Tech"
     }
    ],
    "episodes": []
