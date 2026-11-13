@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.shasha.app",
+    "sha256_cert_fingerprints": [
+      "E8:25:44:CE:B5:B1:23:1B:E2:4D:22:3F:25:66:BC:00:4E:B5:77:45:67:5C:7A:CF:44:CE:F7:39:7D:F1:82:D4"
+    ]
+  }
+}]
