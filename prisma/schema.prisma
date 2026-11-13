@@ -1,0 +1,140 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String         @id @default(cuid())
+  email        String         @unique
+  name         String
+  passwordHash String
+  avatarColor  String         @default("#00d26a")
+  vipUntil     DateTime?
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  sessions     Session[]
+  watchlist    WatchlistItem[]
+  progress     WatchProgress[]
+  subscriptions Subscription[]
+}
+
+model Session {
+  id        String   @id
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+}
+
+model Genre {
+  id      String       @id @default(cuid())
+  slug    String       @unique
+  nameAr  String
+  nameEn  String
+  titles  TitleGenre[]
+}
+
+model TitleGenre {
+  titleId  String
+  genreId  String
+  title    Title  @relation(fields: [titleId], references: [id], onDelete: Cascade)
+  genre    Genre  @relation(fields: [genreId], references: [id], onDelete: Cascade)
+
+  @@id([titleId, genreId])
+}
+
+model Title {
+  id           String        @id @default(cuid())
+  slug         String        @unique
+  type         String // MOVIE | SERIES
+  titleAr      String
+  titleEn      String
+  synopsisAr   String
+  synopsisEn   String
+  poster       String
+  backdrop     String?
+  year         Int?
+  ageRating    String?
+  score        Float?
+  durationMin  Int?
+  sourceType   String? // hls | mp4
+  sourceUrl    String?
+  fallbackUrl  String?
+  isPremium    Boolean       @default(false)
+  releaseState String        @default("released") // released | coming_soon
+  featured     Boolean       @default(false)
+  trending     Int?
+  createdAt    DateTime      @default(now())
+  genres       TitleGenre[]
+  episodes     Episode[]
+  watchlist    WatchlistItem[]
+  progress     WatchProgress[]
+}
+
+model Episode {
+  id          String   @id @default(cuid())
+  titleId     String
+  title       Title    @relation(fields: [titleId], references: [id], onDelete: Cascade)
+  season      Int      @default(1)
+  number      Int
+  nameAr      String
+  nameEn      String
+  durationMin Int?
+  sourceType  String? // hls | mp4
+  sourceUrl   String?
+  fallbackUrl String?
+  isPremium   Boolean  @default(false)
+}
+
+model WatchlistItem {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  titleId   String
+  title     Title    @relation(fields: [titleId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([userId, titleId])
+}
+
+model WatchProgress {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  titleId     String
+  title       Title    @relation(fields: [titleId], references: [id], onDelete: Cascade)
+  episodeId   String?
+  positionSec Float    @default(0)
+  durationSec Float    @default(0)
+  updatedAt   DateTime @updatedAt
+
+  @@unique([userId, titleId])
+}
+
+model Plan {
+  id          String  @id @default(cuid())
+  code        String  @unique
+  nameAr      String
+  nameEn      String
+  priceDzd    Float
+  originalDzd Float?
+  months      Int
+  featuresAr  String // JSON array
+  featuresEn  String // JSON array
+  highlight   Boolean @default(false)
+}
+
+model Subscription {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  planCode  String
+  startedAt DateTime @default(now())
+  expiresAt DateTime
+  method    String   @default("demo")
+  status    String   @default("active") // active | cancelled
+}

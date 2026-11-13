@@ -1,0 +1,35 @@
+{
+  "name": "شاشة — أفلام ومسلسلات وأنمي",
+  "short_name": "شاشة",
+  "description": "منصة بث متكاملة: أفلام ومسلسلات وأنمي بمشغل متطور وعضوية VIP. تعمل على الجوال والكمبيوتر وتُثبّت كتطبيق.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#070b09",
+  "theme_color": "#070b09",
+  "lang": "ar",
+  "dir": "rtl",
+  "categories": ["entertainment", "video"],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
