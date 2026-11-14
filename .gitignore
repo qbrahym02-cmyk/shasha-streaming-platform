@@ -77,3 +77,8 @@ Caddyfile
 /android-signing/
 *.keystore
 *.jks
+# نسخة العمل المحلية لمستودع النشر (استنساخ داخلي)
+/site-deploy/
+/android-sdk/
+/gradle-dist/
+/tool-results/

@@ -10,6 +10,7 @@ import {
   LogOut,
   Search,
   Settings,
+  Smartphone,
   User,
   X,
 } from 'lucide-react';
@@ -100,6 +101,13 @@ export function Header() {
         </button>
       ))}
       <button
+        onClick={() => nav({ name: 'app' })}
+        className="flex items-center gap-1 rounded-lg px-3 py-1.5 text-sm font-bold text-primary transition-colors hover:bg-primary/10"
+      >
+        <Smartphone className="size-4" />
+        {T.navApp}
+      </button>
+      <button
         onClick={() => nav({ name: 'plans' })}
         className="flex items-center gap-1 rounded-lg px-3 py-1.5 text-sm font-black text-vip transition-colors hover:bg-vip/10"
       >
@@ -149,6 +157,17 @@ export function Header() {
               onClick={() => setSearchOpen((v) => !v)}
             >
               {searchOpen ? <X className="size-5" /> : <Search className="size-5" />}
+            </Button>
+
+            {/* تحميل التطبيق — ثابت دائماً */}
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => nav({ name: 'app' })}
+              className="hidden rounded-xl border-primary/40 bg-primary/10 font-bold text-primary hover:bg-primary/20 sm:flex"
+            >
+              <Smartphone className="size-4" />
+              {T.navApp}
             </Button>
 
             {/* تثبيت التطبيق */}

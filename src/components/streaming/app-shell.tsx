@@ -19,6 +19,7 @@ import { DetailsView } from './details-view';
 import { PlayerView } from './player-view';
 import { WatchlistView } from './watchlist-view';
 import { PlansView } from './plans-view';
+import { AppLanding } from './app-landing';
 import { AuthDialog } from './auth-dialog';
 import { nav } from './ui-bits';
 import { LogoMark } from './ui-bits';
@@ -103,6 +104,8 @@ export function AppShell() {
         return <WatchlistView />;
       case 'plans':
         return <PlansView />;
+      case 'app':
+        return <AppLanding />;
       default:
         return <HomeView />;
     }

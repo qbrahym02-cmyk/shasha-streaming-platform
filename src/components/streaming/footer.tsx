@@ -1,12 +1,13 @@
 'use client';
 
 // التذييل
-import { Download } from 'lucide-react';
+import { Download, Smartphone } from 'lucide-react';
 import { useApp } from '@/lib/store';
 import { getDict } from '@/lib/i18n';
-import { BRAND } from '@/lib/config';
+import { BRAND, APP_DOWNLOAD } from '@/lib/config';
 import { Button } from '@/components/ui/button';
 import { LogoMark, nav } from './ui-bits';
+import { DownloadButton } from './app-landing';
 
 export function Footer() {
   const lang = useApp((s) => s.lang);
@@ -22,6 +23,37 @@ export function Footer() {
 
   return (
     <footer className="mt-14 border-t border-white/5 bg-[#060a08]">
+      {/* شريط تحميل التطبيق */}
+      <div className="border-b border-white/5 bg-gradient-to-l from-primary/5 via-transparent to-primary/5">
+        <div className="mx-auto flex max-w-[1500px] flex-col items-center justify-between gap-4 px-4 py-6 sm:flex-row md:px-8">
+          <div className="flex items-center gap-3">
+            <span className="grid size-11 place-items-center rounded-2xl bg-primary/15 ring-1 ring-primary/25">
+              <Smartphone className="size-5 text-primary" />
+            </span>
+            <div className="leading-tight">
+              <p className="font-black">{T.appLandingBadge}</p>
+              <p className="text-xs text-muted-foreground" dir="auto">
+                {APP_DOWNLOAD.sizeMb} MB · {T.appDevicesAndroidDesc}
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <DownloadButton size="md" className="sm:w-auto" />
+            {installEvent && (
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={doInstall}
+                className="h-12 rounded-2xl border-white/15 font-bold"
+              >
+                <Download className="size-4" />
+                {T.installApp}
+              </Button>
+            )}
+          </div>
+        </div>
+      </div>
+
       <div className="mx-auto grid max-w-[1500px] gap-10 px-4 py-12 md:grid-cols-4 md:px-8">
         <div className="space-y-4">
           <div className="flex items-center gap-2.5">
@@ -32,16 +64,6 @@ export function Footer() {
             </div>
           </div>
           <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">{T.footerAboutText}</p>
-          {installEvent && (
-            <Button
-              size="sm"
-              onClick={doInstall}
-              className="rounded-xl bg-primary font-bold text-primary-foreground hover:bg-primary/90"
-            >
-              <Download className="size-4" />
-              {T.installApp}
-            </Button>
-          )}
         </div>
 
         <div>
@@ -78,6 +100,11 @@ export function Footer() {
         <div>
           <p className="mb-3 font-extrabold">{T.footerSupport}</p>
           <ul className="space-y-2 text-sm text-muted-foreground">
+            <li>
+              <button className="hover:text-primary" onClick={() => nav({ name: 'app' })}>
+                {T.navApp}
+              </button>
+            </li>
             <li>{T.faq}</li>
             <li>{T.contact}</li>
             <li>{T.terms}</li>

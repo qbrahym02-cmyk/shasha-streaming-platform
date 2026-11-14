@@ -97,4 +97,5 @@ export type View =
   | { name: 'details'; slug: string }
   | { name: 'player'; slug: string; episodeId?: string }
   | { name: 'watchlist' }
-  | { name: 'plans' };
+  | { name: 'plans' }
+  | { name: 'app' };

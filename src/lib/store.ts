@@ -31,6 +31,8 @@ export function viewToHash(v: View): string {
       return '#/list';
     case 'plans':
       return '#/vip';
+    case 'app':
+      return '#/app';
     default:
       return '#/';
   }
@@ -56,6 +58,7 @@ export function hashToView(hash: string): View {
   if (parts[0] === 'watch' && parts[1]) return { name: 'player', slug: parts[1], episodeId: params.get('e') || undefined };
   if (parts[0] === 'list') return { name: 'watchlist' };
   if (parts[0] === 'vip') return { name: 'plans' };
+  if (parts[0] === 'app') return { name: 'app' };
   return { name: 'home' };
 }
 
