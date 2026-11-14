@@ -1,10 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { STATELESS, slWatchlistGet, slWatchlistPost, slWatchlistDelete } from '@/lib/stateless';
 import { db } from '@/lib/db';
 import { getRequestUser } from '@/lib/auth';
 import { userFlagsForTitles } from '@/lib/catalog';
 
 // GET /api/watchlist — قائمة المستخدم
 export async function GET(req: NextRequest) {
+  if (STATELESS) return slWatchlistGet(req);
   const user = await getRequestUser(req);
   if (!user) return NextResponse.json({ ok: true, data: [] });
 
@@ -38,6 +40,7 @@ export async function GET(req: NextRequest) {
 
 // POST /api/watchlist {slug} — إضافة
 export async function POST(req: NextRequest) {
+  if (STATELESS) return slWatchlistPost(req);
   const user = await getRequestUser(req);
   if (!user) return NextResponse.json({ ok: false, error: 'سجّل الدخول أولاً', code: 'auth_required' }, { status: 401 });
 
@@ -56,6 +59,7 @@ export async function POST(req: NextRequest) {
 
 // DELETE /api/watchlist?slug= — إزالة
 export async function DELETE(req: NextRequest) {
+  if (STATELESS) return slWatchlistDelete(req);
   const user = await getRequestUser(req);
   if (!user) return NextResponse.json({ ok: false, error: 'سجّل الدخول أولاً' }, { status: 401 });
 

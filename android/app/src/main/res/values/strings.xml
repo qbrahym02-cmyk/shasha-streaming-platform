@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- اسم التطبيق -->
+    <string name="app_name">شاشة</string>
+
+    <!-- التنقل -->
+    <string name="tab_home">الرئيسية</string>
+    <string name="tab_search">بحث</string>
+    <string name="tab_vip">VIP</string>
+    <string name="tab_profile">حسابي</string>
+
+    <!-- عام -->
+    <string name="watch_now">شاهد الآن</string>
+    <string name="details">التفاصيل</string>
+    <string name="my_list">قائمتي</string>
+    <string name="add_to_list">أضِف لقائمتي</string>
+    <string name="in_list">في قائمتي</string>
+    <string name="remove_from_list">إزالة من القائمة</string>
+    <string name="continue_watching">تابع المشاهدة</string>
+    <string name="trending">الأكثر رواجًا</string>
+    <string name="newest">أحدث الإضافات</string>
+    <string name="vip_section">مختارات VIP</string>
+    <string name="movies">أفلام</string>
+    <string name="series">مسلسلات</string>
+    <string name="all">الكل</string>
+    <string name="retry">إعادة المحاولة</string>
+    <string name="cancel">إلغاء</string>
+    <string name="error_generic">حدث خطأ ما، حاول مجددًا</string>
+    <string name="error_network">تعذر الاتصال بالخادم، تحقق من الإنترنت</string>
+    <string name="no_results">لا توجد نتائج مطابقة</string>
+    <string name="minutes">دقيقة</string>
+    <string name="loading">جارٍ التحميل…</string>
+
+    <!-- البحث -->
+    <string name="search_hint">ابحث عن فيلم أو مسلسل…</string>
+    <string name="search_empty">ابدأ بالكتابة لعرض النتائج</string>
+
+    <!-- التصفح -->
+    <string name="browse">تصفح</string>
+    <string name="sort_popular">الأعلى تقييمًا</string>
+    <string name="sort_newest">الأحدث</string>
+
+    <!-- المصادقة -->
+    <string name="login">تسجيل الدخول</string>
+    <string name="register">إنشاء حساب</string>
+    <string name="logout">تسجيل الخروج</string>
+    <string name="email">البريد الإلكتروني</string>
+    <string name="password">كلمة المرور</string>
+    <string name="full_name">الاسم الكامل</string>
+    <string name="no_account">ليس لديك حساب؟ أنشئ حسابًا</string>
+    <string name="have_account">لديك حساب؟ سجّل الدخول</string>
+    <string name="demo_accounts">حسابات تجريبية جاهزة</string>
+    <string name="guest">زائر</string>
+    <string name="login_to_continue">سجّل الدخول للمتابعة</string>
+    <string name="logout_confirm">هل تريد تسجيل الخروج؟</string>
+
+    <!-- VIP -->
+    <string name="vip_title">عضوية شاشة VIP</string>
+    <string name="vip_subtitle">افتح كل المحتوى الحصري بجودة عالية وبدون إعلانات</string>
+    <string name="vip_active">عضويتك VIP فعّالة</string>
+    <string name="vip_active_until">فعّالة حتى %1$s</string>
+    <string name="vip_cancel">إلغاء العضوية</string>
+    <string name="activate">اشترك الآن</string>
+    <string name="dzd">دج</string>
+    <string name="per_six_months">لستة أشهر</string>
+    <string name="payment_demo_note">دفع تجريبي — لن يُخصم أي مبلغ حقيقي</string>
+    <string name="vip_success">تم تفعيل عضوية VIP بنجاح</string>
+    <string name="vip_cancelled">تم إلغاء العضوية</string>
+
+    <!-- الحساب -->
+    <string name="settings">الإعدادات</string>
+    <string name="language">اللغة</string>
+    <string name="arabic">العربية</string>
+    <string name="english">English</string>
+    <string name="about">عن التطبيق</string>
+    <string name="version">الإصدار</string>
+    <string name="desc_profile">إدارة حسابك ومشاهداتك وعضويتك</string>
+
+    <!-- التفاصيل -->
+    <string name="episodes">الحلقات</string>
+    <string name="episode">حلقة %1$d</string>
+    <string name="season">موسم %1$d</string>
+    <string name="similar">أعمال مشابهة</string>
+    <string name="synopsis">القصة</string>
+    <string name="coming_soon">قريبًا</string>
+    <string name="coming_soon_msg">هذا العمل لم يتوفر بعد — ترقّب إطلالته</string>
+    <string name="vip_badge">VIP</string>
+    <string name="premium_content">محتوى VIP</string>
+    <string name="free_content">مجاني</string>
+
+    <!-- المشغل -->
+    <string name="next_episode">الحلقة التالية</string>
+    <string name="quality">الجودة</string>
+    <string name="quality_auto">تلقائي</string>
+    <string name="speed">السرعة</string>
+    <string name="player_error_vip">هذا المحتوى متاح لمشتركي VIP فقط</string>
+    <string name="player_error_auth">سجّل الدخول أولاً لمشاهدة هذا المحتوى</string>
+    <string name="player_error_source">تعذر تحميل مصدر الفيديو</string>
+    <string name="go_vip">اطّلع على الباقات</string>
+</resources>

@@ -1,10 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { STATELESS, slSubscribePost, slSubscribeDelete } from '@/lib/stateless';
 import { db } from '@/lib/db';
 import { getRequestUser, publicUser } from '@/lib/auth';
 
 // POST /api/subscribe {planCode} — تفعيل VIP تجريبي (بدون دفع حقيقي)
 // DELETE /api/subscribe — إلغاء العضوية
 export async function POST(req: NextRequest) {
+  if (STATELESS) return slSubscribePost(req);
   const user = await getRequestUser(req);
   if (!user) return NextResponse.json({ ok: false, error: 'سجّل الدخول أولاً', code: 'auth_required' }, { status: 401 });
 
@@ -27,6 +29,7 @@ export async function POST(req: NextRequest) {
 }
 
 export async function DELETE(req: NextRequest) {
+  if (STATELESS) return slSubscribeDelete(req);
   const user = await getRequestUser(req);
   if (!user) return NextResponse.json({ ok: false, error: 'سجّل الدخول أولاً' }, { status: 401 });
 

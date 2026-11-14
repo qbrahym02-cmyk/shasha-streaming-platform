@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { STATELESS, slProgressGet, slProgressPost } from '@/lib/stateless';
 import { db } from '@/lib/db';
 import { getRequestUser } from '@/lib/auth';
 import { userFlagsForTitles } from '@/lib/catalog';
@@ -6,6 +7,7 @@ import { userFlagsForTitles } from '@/lib/catalog';
 // GET /api/progress — متابعة المشاهدة (قائمة)
 // GET /api/progress?slug=x — موضع توقف محدد
 export async function GET(req: NextRequest) {
+  if (STATELESS) return slProgressGet(req);
   const user = await getRequestUser(req);
   if (!user) return NextResponse.json({ ok: true, data: { list: [], single: null } });
 
@@ -50,6 +52,7 @@ export async function GET(req: NextRequest) {
 
 // POST /api/progress — حفظ موضع المشاهدة
 export async function POST(req: NextRequest) {
+  if (STATELESS) return slProgressPost(req);
   const user = await getRequestUser(req);
   if (!user) return NextResponse.json({ ok: false, error: 'unauthorized' }, { status: 401 });
 

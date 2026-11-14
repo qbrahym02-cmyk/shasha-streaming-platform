@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { STATELESS, slTitles } from '@/lib/stateless';
 import { db } from '@/lib/db';
 import { getRequestUser } from '@/lib/auth';
 import { userFlagsForTitles } from '@/lib/catalog';
@@ -6,6 +7,7 @@ import type { Prisma } from '@prisma/client';
 
 // GET /api/titles?type=MOVIE&genre=action&q=..&section=trending|vip|new|anime&sort=popular|rated|newest&limit=20
 export async function GET(req: NextRequest) {
+  if (STATELESS) return slTitles(req);
   try {
     const sp = req.nextUrl.searchParams;
     const type = sp.get('type');

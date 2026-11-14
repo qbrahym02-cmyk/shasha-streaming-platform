@@ -1,8 +1,10 @@
 import { NextResponse } from 'next/server';
+import { STATELESS, slPlans } from '@/lib/stateless';
 import { db } from '@/lib/db';
 
 // GET /api/plans — باقات VIP
 export async function GET() {
+  if (STATELESS) return slPlans();
   const plans = await db.plan.findMany({ orderBy: { months: 'asc' } });
   return NextResponse.json({
     ok: true,

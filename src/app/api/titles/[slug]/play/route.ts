@@ -1,12 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { STATELESS, slPlay } from '@/lib/stateless';
 import { db } from '@/lib/db';
 import { getRequestUser, isVip } from '@/lib/auth';
 
 // GET /api/titles/[slug]/play?e=episodeId
 // التحقق من الصلاحية قبل كشف رابط الفيديو (مجاني / VIP)
 export async function GET(req: NextRequest, ctx: { params: Promise<{ slug: string }> }) {
+  const { slug } = await ctx.params;
+  if (STATELESS) return slPlay(req, slug);
   try {
-    const { slug } = await ctx.params;
     const episodeId = req.nextUrl.searchParams.get('e');
 
     const title = await db.title.findUnique({

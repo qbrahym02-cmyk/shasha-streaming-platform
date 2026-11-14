@@ -1,12 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { STATELESS, slTitleDetail } from '@/lib/stateless';
 import { db } from '@/lib/db';
 import { getRequestUser, isVip } from '@/lib/auth';
 import { mapTitle } from '@/lib/catalog';
 
 // GET /api/titles/[slug] — تفاصيل العمل
 export async function GET(req: NextRequest, ctx: { params: Promise<{ slug: string }> }) {
+  const { slug } = await ctx.params;
+  if (STATELESS) return slTitleDetail(req, slug);
   try {
-    const { slug } = await ctx.params;
     const title = await db.title.findUnique({
       where: { slug },
       include: {

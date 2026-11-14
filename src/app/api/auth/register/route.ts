@@ -1,10 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { STATELESS, slRegister } from '@/lib/stateless';
 import { db } from '@/lib/db';
 import { createSession, hashPassword, publicUser, sessionCookie } from '@/lib/auth';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(req: NextRequest) {
+  if (STATELESS) return slRegister(req);
   try {
     const body = await req.json().catch(() => null);
     const email = String(body?.email || '').trim().toLowerCase();

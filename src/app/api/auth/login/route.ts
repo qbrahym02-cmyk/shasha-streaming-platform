@@ -1,8 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { STATELESS, slLogin } from '@/lib/stateless';
 import { db } from '@/lib/db';
 import { createSession, publicUser, sessionCookie, verifyPassword } from '@/lib/auth';
 
 export async function POST(req: NextRequest) {
+  if (STATELESS) return slLogin(req);
   try {
     const body = await req.json().catch(() => null);
     const email = String(body?.email || '').trim().toLowerCase();

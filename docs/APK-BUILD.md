@@ -1,42 +1,77 @@
 <div dir="rtl">
 
-# بناء ملف APK أندرويد (TWA)
+# بناء تطبيق الأندرويد الأصلي — شاشة v2.0.0
 
-هذا المشروع يستخدم **bubblewrap** (من Google) لتغليف موقع/PWA شاشة في تطبيق أندرويد أصلي (Trusted Web Activity) — حجم التطبيق صغير جداً (~2MB) ويعمل بنفس سرعة الويب مع واجهة ملء الشاشة بدون شريط متصفح.
+> ابتداءً من الإصدار 2.0.0 أصبح التطبيق **أصليًا 100%** (Kotlin + Jetpack Compose) ولم يعد TWA.
+> توثيق النسخة القديمة (bubblewrap TWA) في أسفل الملف للأرشفة.
 
 ## المتطلبات
-- Node 18+ / JDK 17+ (متوفر تلقائياً عبر bubblewrap)
-- اتصال بالإنترنت (تنزيل Android SDK مرة واحدة ~300MB في `~/.bubblewrap`)
 
-## البناء بخطوة واحدة
+- JDK 17 أو أحدث
+- Android SDK: `platforms;android-35` + `build-tools;35.0.0` (متغير `ANDROID_HOME`)
+- Gradle 8.11+ (أو استخدم Gradle Wrapper)
+
+## البناء
 
 ```bash
-bash scripts/build-apk.sh https://your-deployed-domain.com
+cd android
+
+# عنوان الـ API (غيّره إذا نشرت الموقع على نطاق آخر)
+# android/app/build.gradle.kts -> buildConfigField("String", "API_BASE", ...)
+
+gradle assembleRelease   # app/build/outputs/apk/release/app-release.apk
+gradle bundleRelease     # app/build/outputs/bundle/release/app-release.aab (لمتجر Google Play)
 ```
 
-السكربت يقوم بـ:
-1. توليد `twa-manifest.json` بالرابط المطلوب
-2. توليد مفتاح توقيع (keystore) مع كلمة مرور محفوظة في `apk/keystore.properties`
-3. تحديث `public/.well-known/assetlinks.json` بالبصمة (SHA-256) — **يجب أن يُخدم من الموقع** لعرض التطبيق ملء الشاشة بدون شريط العنوان
-4. `bubblewrap build` ← ينتج:
-   - `apk/shasha-app-release-signed.apk` (للتثبيت المباشر)
-   - `apk/shasha-app-release-bundle.aab` (لمتجر Google Play)
+## التوقيع
 
-## التثبيت على الهاتف
-1. انقل ملف `shasha-app-release-signed.apk` لهاتفك (أي طريقة: تحميل مباشر، كابل، درايف)
-2. افتح الملف واسمح بـ "تثبيت من مصادر غير معروفة" (مرة واحدة)
-3. مبروك — تطبيق شاشة على جهازك!
+- ملف المفتاح المتوقع: `android-signing/shasha.keystore` (بمحاذاة مجلد `android/`) — **غير مضمّن في المستودع**.
+- عند وجوده يوقّع Gradle نسخة الإصدار تلقائيًا؛ وعند غيابه تُنتج نسخة غير موقّعة (لتوزيع داخل الفريق فقط).
+- لتوليد مفتاح جديد:
+```bash
+keytool -genkeypair -keystore android-signing/shasha.keystore -alias shasha \
+  -keyalg RSA -keysize 2048 -validity 10950
+```
+- **احتفظ بالمفتاح وكلمة المرور بأمان** — بدونها لا يمكن إصدار تحديث بنفس هوية التطبيق (`com.shasha.app`).
+- ملاحظة ترقية: v2.0.0 موقّع بمفتاح جديد، لذا من لديه v1.0.0 (TWA) عليه إزالته قبل التثبيت.
 
-## النشر على Google Play
-- استخدم ملف `.aab` مع حساب Google Play Developer (رسوم لمرة واحدة 25$)
-- المفتاح `apk/shasha.keystore` **يجب حفظه بأمان** — أي فقدان يعني عدم القدرة على تحديث التطبيق
+## بنية المشروع
 
-## ملاحظات TWA
-- التطبيق يفتح الرابط المحدد داخل نافذة ملء الشاشة
-- وضع عدم الاتصال: يظهر `offline.html` المدمج
-- للتحقق الكامل (إخفاء شريط العنوان): يجب إتاحة `/.well-known/assetlinks.json` من نفس الدومين بالبصمة الصحيحة
+```
+android/app/src/main/java/com/shasha/app/
+├── ShashaApp.kt          # تهيئة التطبيق (API/جلسة/لغة)
+├── MainActivity.kt       # نشاط واحد + التنقل + PiP
+├── data/
+│   ├── Models.kt         # نماذج kotlinx.serialization (تطابق API الويب)
+│   ├── Api.kt            # Retrofit + OkHttp + حفظ كوكيز الجلسة
+│   ├── Session.kt        # حالة المستخدم (StateFlow)
+│   └── Repo.kt           # كل نداءات API
+├── ui/
+│   ├── screens/          # Home, Search, Browse, Details, Player, VIP, Profile, Watchlist, Auth
+│   ├── components/       # بطاقات، بانر، shimmer، أخطاء
+│   ├── icons/            # أيقونات SVG مخصصة (تاج VIP، عين، إلخ)
+│   └── theme/            # ألوان العلامة + خط Tajawal
+└── res/                  # نصوص ar (افتراضي) + en، أيقونات تكيفية بكل الكثافات
+```
 
-## iOS؟
-على آيفون: افتح الموقع في سفاري ← زر المشاركة ← "إضافة إلى الشاشة الرئيسية" — يعمل كتطبيق مستقل مع أيقونة وشاشة بداية.
+## الميزات المضمنة
+
+- مشغل Media3/ExoPlayer: HLS متكيف + جودة يدوية + سرعة + PiP (أندرويد 12+ تلقائي) + MediaSession
+- استئناف المشاهدة وحفظ التقدم على الخادم كل 5 ثوانٍ + عند الخروج
+- تشغيل تلقائي للحلقة التالية + لوحة حلقات
+- تسجيل دخول/إنشاء حساب + حسابات تجريبية بضغطة زر
+- VIP: باقات + تفعيل تجريبي + إلغاء — الحماية من طرف الخادم
+- تبديل لغة التطبيق عربي/إنجليزي فوري (AppCompat per-app locales)
+- عربي RTL افتراضيًا مع دعم كامل للاتجاه
+
+---
+
+# أرشيف: بناء TWA القديم (v1.0.0)
+
+النسخة القديمة كانت تغليفًا للويب (Trusted Web Activity) عبر bubblewrap:
+
+```bash
+bash scripts/build-apk.sh https://your-domain.com
+```
 
 </div>

@@ -2,38 +2,51 @@
 
 # شاشة | SHASHA — منصة بث متكاملة 🎬
 
-منصة بث فيديو تجارية متكاملة على غرار خدمات OTT العالمية (بدون نسخ أي علامة تجارية أو محتوى محمي) — تعمل كـ **موقع ويب + تطبيق PWA + تطبيق أندرويد (APK)** من قاعدة كود واحدة.
+منصة بث فيديو تجارية متكاملة على غرار خدمات OTT العالمية (بدون نسخ أي علامة تجارية أو محتوى محمي) — **موقع ويب بخوادم حقيقية + تطبيق أندرويد أصلي 100% (Kotlin) + PWA**.
 
-![Platform](https://img.shields.io/badge/Platform-Web%20%2B%20PWA%20%2B%20Android-00d26a) ![License](https://img.shields.io/badge/License-MIT-e8b923) ![Lang](https://img.shields.io/badge/%D9%84%D8%BA%D8%A9-%D8%B9%D8%B1%D8%A8%D9%8A%20%2B%20English-00d26a)
+![Platform](https://img.shields.io/badge/Platform-Web%20%2B%20Native%20Android%20%2B%20PWA-00d26a) ![License](https://img.shields.io/badge/License-MIT-e8b923) ![Lang](https://img.shields.io/badge/%D9%84%D8%BA%D8%A9-%D8%B9%D8%B1%D8%A8%D9%8A%20%2B%20English-00d26a)
+
+## 🔗 الروابط الحية
+
+| الوجهة | الرابط |
+|---|---|
+| 🌐 **الموقع الكامل (خوادم API حقيقية)** | https://shasha-sigma.vercel.app |
+| 📱 **تطبيق الأندرويد الأصلي v2.0.0** | `download/shasha-v2.0.0-native.apk` (12 MB) |
+| 🛒 حزمة Google Play (.aab) | `download/shasha-v2.0.0-native.aab` |
+| 📄 نسخة العرض الثابتة (GitHub Pages) | https://qbrahym02-cmyk.github.io |
+
+> الإصدار 2.0.0 هو **تطبيق أصلي كامل** (Kotlin + Jetpack Compose + Media3) يتصل بواجهات الموقع على Vercel — لم يعد تغليف ويب (TWA). بما أن مفتاح التوقيع جديد، من ثبت الإصدار القديم 1.0.0 (TWA) عليه إزالته أولًا ثم تثبيت هذا الإصدار.
 
 ---
 
 ## ✨ ماذا تتضمن المنصة؟
 
-### 🎥 مشغل فيديو احترافي
-- بث **HLS متكيف** (hls.js) مع تشغيل تلقائي للجودة حسب سرعة الإنترنت + تبديل يدوي (Auto / 1080p / 720p / ...)
-- **ترجمات متعددة** ومسارات صوتية متعددة (عند توفرها في البث)
-- سرعة تشغيل (0.5x → 2x)، تخطي ±10 ثانية، ملء الشاشة، صورة داخل صورة (PiP)
-- **استكمال المشاهدة** من آخر موضع + حفظ دوري للتقدم
-- **تشغيل الحلقة التالية تلقائياً** مع عد تنازلي
-- اختصارات لوحة مفاتيح كاملة (مسافة، أسهم، F، M)
+### 🎥 مشغل فيديو احترافي (ويب + أندرويد)
+- بث **HLS متكيف** مع جودة تلقائية حسب سرعة الإنترنت + **تبديل يدوي** (تلقائي / 1080p / 720p...)
+- سرعة تشغيل (0.5x → 2x)، تخطي ±10 ثوانٍ، ملء الشاشة، **صورة داخل صورة (PiP)**
+- **استكمال المشاهدة** من آخر موضع (محفوظ على الخادم) + حفظ دوري كل 5 ثوانٍ
+- **تشغيل الحلقة التالية تلقائياً** + قائمة حلقات داخل المشغل (أندرويد)
+- مشغل أندرويد: **ExoPlayer/Media3** مع جلسة وسائط (أزرار شاشة القفل) وتبديل تلقائي لمصدر احتياطي عند فشل البث
+- الويب: ترجمات ومسارات صوتية متعددة (عند توفرها) + اختصارات لوحة مفاتيح كاملة
 
 ### 📚 كتالوج وواجهات
-- صفحة رئيسية: بانر متحرك (Carousel)، صفوف: تابع المشاهدة / الرائج / حصري VIP / أفلام / مسلسلات / أنمي
-- تصفح بفلاتر (النوع، التصنيف، VIP، الترتيب) + **بحث فوري**
+- الرئيسية: بانر متحرك، صفوف: تابع المشاهدة / الرائج / حصري VIP / أفلام / مسلسلات
+- تصفح بفلاتر (النوع، التصنيف، الترتيب) + **بحث فوري**
 - صفحة تفاصيل: خلفية، ملصق، تقييم، تصنيف عمري، حلقات مع أقفال VIP، أعمال مشابهة
-- **عربية RTL + إنجليزية LTR** بضغطة زر
+- **عربية RTL + إنجليزية LTR** — على الويب وفي التطبيق الأصلي (تبديل فوري للغة التطبيق)
 
 ### 👤 حسابات واشتراكات
-- تسجيل/دخول بالبريد (scrypt + جلسات كوكيز HttpOnly)
-- **قائمة المفضلة** و**سجل المشاهدة** لكل مستخدم
-- **عضوية VIP** مع بوابات قفل محتوى، باقات (شهري/3 أشهر/سنوي بالدينار الجزائري)، تفعيل تجريبي فوري (جاهز لربط CIB/الذهبية/بريدي موب عند الإطلاق)
-- فحص الصلاحيات **من طرف الخادم** قبل كشف روابط الفيديو
+- تسجيل/دخول بالبريد — على Vercel بجلسات **موقّعة HMAC** بلا قاعدة بيانات، وفي الاستضافة الذاتية بـ scrypt + SQLite
+- **قائمة المفضلة** و**سجل المشاهدة** متزامنان عبر كل أجهزة التطبيق والويب (عبر الخادم)
+- **عضوية VIP** مع بوابات قفل محتوى، باقات (شهري/6 أشهر/سنوي بالدينار الجزائري)، تفعيل تجريبي فوري
+- فحص الصلاحيات **من طرف الخادم** قبل كشف روابط الفيديو — في كل الأوضاع
 
-### 📱 PWA + أندرويد
-- تطبيق ويب قابل للتثبيت (manifest + service worker + أوفلاين بيدج)
-- **APK أندرويد TWA** جاهز البناء عبر bubblewrap (انظر `docs/APK-BUILD.md`)
-- iOS: إضافة للشاشة الرئيسية بدعم كامل
+### 📱 تطبيق الأندرويد الأصلي (جديد في v2.0.0)
+- **Kotlin + Jetpack Compose (Material 3)** — واجهة أصلية بالكامل بخط Tajawal العربي
+- بنية MVVM نظيفة: Retrofit + OkHttp (حفظ الجلسات) + kotlinx.serialization + Coil
+- مشغل **Media3/ExoPlayer**: جودة يدوية، سرعة، PiP تلقائي (أندرويد 12+)، استئناف، حلقات
+- شاشة بداية (Splash)، أيقونات تكيفية، وضع داكن بهوية العلامة (أسود + زمردي + ذهبي)
+- `minSdk 24` (أندرويد 7.0+) — يدعم +99% من الأجهزة
 
 ---
 
@@ -52,69 +65,80 @@
 
 | الطبقة | التقنية |
 |---|---|
-| الواجهة | Next.js 16 (App Router) + TypeScript + Tailwind CSS 4 + shadcn/ui |
-| الحالة | Zustand (عميل) + fetch hooks |
-| الحركة | Framer Motion |
-| قاعدة البيانات | SQLite + Prisma ORM |
-| البث | HLS (hls.js) + MP4 احتياطي |
-| المصادقة | scrypt + جلسات كوكيز |
+| موقع الويب | Next.js 16 (App Router) + TypeScript + Tailwind CSS 4 + shadcn/ui |
+| تطبيق الأندرويد | **Kotlin + Jetpack Compose + Media3/ExoPlayer + Retrofit** |
+| خادم الإنتاج (Vercel) | Next.js API Routes بوضع **serverless بلا قاعدة بيانات** (جلسات وكوكيز موقّعة HMAC-SHA256) |
+| خادم الاستضافة الذاتية | SQLite + Prisma ORM + scrypt |
+| البث | HLS (hls.js للموبايل/الويب، ExoPlayer للأندرويد) + MP4 احتياطي |
 | PWA | manifest + service worker (cache-first للصور) |
-| أندرويد | TWA عبر bubblewrap |
+
+### 🧩 أوضاع التشغيل الثلاثة
+1. **وضع Vercel (serverless)**: `SERVERLESS=1` — كل الـ API تعمل بدون أي قاعدة بيانات: الكتالوج من ملف JSON، والمصادقة والاشتراكات والمفضلة والتقدم داخل كوكيز موقّعة (تتحقق منها كل نسخة دالة). مناسب للنشر المجاني على Vercel.
+2. **وضع قاعدة البيانات (استضافة ذاتية)**: Prisma + SQLite كامل الميزات (حسابات دائمة عبر الأجهزة).
+3. **وضاع العرض الثابت (GitHub Pages)**: `BUILD_DEMO=1` — كل شيء يعمل من localStorage.
 
 ---
 
-## 🚀 التشغيل محلياً
+## 🚀 التشغيل محلياً (موقع الويب)
 
 ```bash
 # المتطلبات: Node 20+ / Bun 1.1+
 bun install                # أو npm install
-bun run db:push            # إنشاء قاعدة البيانات
+bun run db:push            # إنشاء قاعدة البيانات (وضع قاعدة البيانات فقط)
 bun scripts/seed.ts        # تعبئة الكتالوج (18 عملاً + باقات + حسابات تجريبية)
 bun run dev                # http://localhost:3000
 ```
 
-متغيرات البيئة (`.env`):
+متغيرات البيئة:
 ```
-DATABASE_URL=file:./db/custom.db
+DATABASE_URL=file:./db/custom.db     # وضع قاعدة البيانات
+SERVERLESS=1                          # وضع serverless (اختياري)
+AUTH_SECRET=<مفتاح عشوائي>            # توقيع الجلسات (وضع serverless)
 ```
 
-## 📦 بناء النسخة الثابتة للعرض (GitHub Pages)
+## 📱 بناء تطبيق الأندرويد الأصلي
+
+```bash
+cd android
+# المتطلبات: JDK 17+ و Android SDK (platforms;android-35 + build-tools;35.0.0)
+gradle assembleRelease    # ينتج app-release.apk (موقّع إن وُجد android-signing/shasha.keystore)
+gradle bundleRelease      # ينتج app-release.aab لمتجر Google Play
+```
+
+- عنوان الـ API مضمّن في `android/app/build.gradle.kts` (`API_BASE`) — غيّره إذا نشرت على نطاق آخر.
+- **مفتاح التوقيع** (`android-signing/shasha.keystore`) غير مضمّن في المستودع — احتفظ به؛ بدونه لا يمكن تحديث التطبيق لنفس المستخدمين (نفس اسم الحزمة `com.shasha.app`).
+
+## 🌐 النشر على Vercel
+
+المشروع جاهز للنشر مباشرة: اربط المستودع بـ Vercel أو انشر عبر `vercel --prod`، ثم أضف متغيرات البيئة `SERVERLESS=1` و `AUTH_SECRET` (و `DATABASE_URL=file:./dev.db`).
+
+## 📄 بناء النسخة الثابتة للعرض (GitHub Pages)
 
 ```bash
 bash scripts/build-demo.sh   # يبني نسخة عرض ثابتة بوضع DEMO (out/)
 ```
-
-## 📱 بناء APK أندرويد
-
-```bash
-bash scripts/build-apk.sh https://your-domain.com
-# ينتج: apk/shasha-app-release-signed.apk
-```
-
-التفاصيل الكاملة في `docs/APK-BUILD.md`.
 
 ---
 
 ## 📁 بنية المشروع
 
 ```
-├── prisma/schema.prisma        # مخطط قاعدة البيانات
-├── scripts/
-│   ├── seed.ts                 # تعبئة الكتالوج والباقات والحسابات
-│   ├── build-demo.sh           # بناء نسخة العرض الثابتة
-│   ├── build-apk.sh            # بناء APK (TWA)
-│   ├── gen-next.sh             # توليد الملصقات (z-ai CLI)
-│   └── process-images.mjs      # معالجة الصور (sharp)
+├── android/                    # ★ تطبيق الأندرويد الأصلي (Kotlin + Compose)
+│   └── app/src/main/java/com/shasha/app/
+│       ├── data/               # Retrofit + OkHttp + الجلسات + المستودع
+│       ├── ui/screens/         # 9 شاشات (رئيسية، بحث، تفاصيل، مشغل، VIP...)
+│       ├── ui/components/      # مكونات مشتركة (بطاقات، بانر، shimmer)
+│       └── ui/theme|icons/     # هوية العلامة + أيقونات مخصصة
+├── prisma/schema.prisma        # مخطط قاعدة البيانات (وضع الاستضافة الذاتية)
+├── scripts/                    # seed + build-demo + أيقونات الأندرويد
 ├── src/
-│   ├── app/
-│   │   ├── page.tsx / layout.tsx / globals.css
-│   │   └── api/                # 11 مسار API (auth/titles/watchlist/progress/plans/subscribe)
-│   ├── components/streaming/   # 16 مكوّن واجهة (مشغل، بانر، صفوف، تفاصيل...)
-│   └── lib/                    # المتجر، الترجمة، المصادقة، الكتالوج، الأنواع
-├── public/
-│   ├── posters/  backdrops/  icons/
-│   ├── manifest.json  sw.js  offline.html
-│   └── .well-known/assetlinks.json   # ربط APK بالموقع (TWA verification)
+│   ├── app/api/                # 12 مسار API (auth/titles/play/watchlist/progress/subscribe)
+│   ├── components/streaming/   # واجهة الويب (16 مكوّن)
+│   └── lib/
+│       ├── stateless.ts        # ★ وضع serverless (جلسات موقّعة HMAC)
+│       ├── db.ts               # Prisma (كسول التحميل)
+│       └── demo-api.ts         # وضع العرض الثابت (localStorage)
+├── public/posters|backdrops|icons
 └── docs/                       # التوثيق
 ```
 
@@ -122,14 +146,15 @@ bash scripts/build-apk.sh https://your-domain.com
 
 ## 🔐 ملاحظات أمنية مهمة
 
-- كلمات المرور تُخزن بـ **scrypt** مع salt عشوائي لكل مستخدم
-- الجلسات **HttpOnly cookies** بصلاحية 30 يوماً مع تنظيف تلقائي
-- روابط الفيديو **لا تُكشف إلا بعد فحص الصلاحية** (مجاني/VIP/تسجيل دخول) في `/api/titles/[slug]/play`
-- عند الإنتاج: أضف rate-limiting وsigned URLs وDRM (Widevine/FairPlay) وتشفير TLS — راجع `AGENTS.md`
+- الجلسات في وضع serverless **كوكيز HttpOnly موقّعة HMAC-SHA256** بصلاحية 30 يومًا — لا يمكن تزويرها أو تعديل حالة VIP من العميل
+- في وضع قاعدة البيانات: كلمات المرور بـ **scrypt** مع salt عشوائي لكل مستخدم
+- روابط الفيديو **لا تُكشف إلا بعد فحص الصلاحية** (مجاني/VIP/تسجيل دخول) في `/api/titles/[slug]/play` — في كل الأوضاع
+- **مفاتيح API (Vercel/GitHub) لا تُحفظ في المستودع** — إن تسربت في محادثة، ألغها فورًا وأنشئ غيرها
+- عند الإنتاج: أضف rate-limiting و signed URLs و DRM (Widevine/FairPlay)
 
 ## ⚖️ إخلاء مسؤولية
 
-منصة **شاشة** مشروع تجريبي مستقل **ليس تابعاً لـ iQIYI أو أي علامة تجارية أخرى**. الأفلام القابلة للتشغيل أعمال مفتوحة المصدر مرخّصة من مؤسسة Blender تحت Creative Commons، وبقية العناوين والصور وهمية لأغراض العرض فقط.
+منصة **شاشة** مشروع تجريبي مستقل **ليس تابعًا لـ iQIYI أو أي علامة تجارية أخرى**. الأفلام القابلة للتشغيل أعمال مفتوحة المصدر مرخّصة من مؤسسة Blender تحت Creative Commons، وبقية العناوين والصور وهمية لأغراض العرض فقط.
 
 ---
 
@@ -137,9 +162,9 @@ bash scripts/build-apk.sh https://your-domain.com
 
 - [ ] لوحة تحكم إدارية (إدارة المحتوى والمستخدمين والإحصائيات)
 - [ ] ربط بوابات دفع جزائرية (CIB / الذهبية / بريدي موب)
-- [ ] تطبيق iOS (Same TWA/PWA أو React Native)
+- [ ] تطبيق iOS أصلي (SwiftUI) — حاليًا iOS عبر PWA
 - [ ] تحويل فيديو FFmpeg + HLS متعدد الجودات للرفع الذاتي
-- [ ] إشعارات Push وتنزيل دون اتصال كامل
+- [ ] إشعارات Push (FCM) وتنزيل دون اتصال داخل التطبيق الأصلي
 - [ ] تطبيقات Smart TV (Android TV / Tizen / webOS)
 
 </div>
@@ -148,10 +173,13 @@ bash scripts/build-apk.sh https://your-domain.com
 
 # SHASHA — Streaming Platform (English)
 
-A complete commercial-grade OTT streaming platform (independent, no third-party branding/content copied) running as **website + PWA + Android app** from one codebase: adaptive HLS player, bilingual Arabic RTL / English UI, accounts, watchlists, resume, VIP subscriptions with server-side entitlement checks, and a bubblewrap TWA APK pipeline.
+A complete commercial-grade OTT streaming platform (independent, no third-party branding/content copied): **full server-backed website (Vercel) + 100% native Android app (Kotlin + Jetpack Compose + Media3/ExoPlayer) + PWA**.
+
+- **Live site:** https://shasha-sigma.vercel.app — real API servers, server-side VIP entitlement checks, HMAC-signed stateless sessions (no DB required on serverless).
+- **Native Android v2.0.0:** adaptive HLS playback, manual quality switching, PiP, episodes, resume sync, bilingual AR/EN with per-app locale switching, Material 3 dark brand theme.
+- **Demo accounts:** `demo@shasha.app` (VIP) / `free@shasha.app` — password `demo1234`
 
 See the Arabic section above for full details, or `docs/ARCHITECTURE.md`.
 
-**Quick start:** `bun install && bun run db:push && bun scripts/seed.ts && bun run dev`
-
-**Demo accounts:** `demo@shasha.app` (VIP) / `free@shasha.app` — password `demo1234`
+**Quick start (web):** `bun install && bun run db:push && bun scripts/seed.ts && bun run dev`
+**Quick start (Android):** `cd android && gradle assembleRelease`

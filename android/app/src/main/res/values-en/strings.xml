@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SHASHA</string>
+
+    <string name="tab_home">Home</string>
+    <string name="tab_search">Search</string>
+    <string name="tab_vip">VIP</string>
+    <string name="tab_profile">Profile</string>
+
+    <string name="watch_now">Watch now</string>
+    <string name="details">Details</string>
+    <string name="my_list">My list</string>
+    <string name="add_to_list">Add to my list</string>
+    <string name="in_list">In my list</string>
+    <string name="remove_from_list">Remove from list</string>
+    <string name="continue_watching">Continue watching</string>
+    <string name="trending">Trending now</string>
+    <string name="newest">New releases</string>
+    <string name="vip_section">VIP picks</string>
+    <string name="movies">Movies</string>
+    <string name="series">Series</string>
+    <string name="all">All</string>
+    <string name="retry">Retry</string>
+    <string name="cancel">Cancel</string>
+    <string name="error_generic">Something went wrong, try again</string>
+    <string name="error_network">Cannot reach the server, check your connection</string>
+    <string name="no_results">No matching results</string>
+    <string name="minutes">min</string>
+    <string name="loading">Loading…</string>
+
+    <string name="search_hint">Search movies or series…</string>
+    <string name="search_empty">Start typing to see results</string>
+
+    <string name="browse">Browse</string>
+    <string name="sort_popular">Top rated</string>
+    <string name="sort_newest">Newest</string>
+
+    <string name="login">Sign in</string>
+    <string name="register">Create account</string>
+    <string name="logout">Sign out</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="full_name">Full name</string>
+    <string name="no_account">No account? Create one</string>
+    <string name="have_account">Have an account? Sign in</string>
+    <string name="demo_accounts">Ready demo accounts</string>
+    <string name="guest">Guest</string>
+    <string name="login_to_continue">Sign in to continue</string>
+    <string name="logout_confirm">Do you want to sign out?</string>
+
+    <string name="vip_title">SHASHA VIP</string>
+    <string name="vip_subtitle">Unlock all exclusive content in high quality, ad-free</string>
+    <string name="vip_active">Your VIP is active</string>
+    <string name="vip_active_until">Active until %1$s</string>
+    <string name="vip_cancel">Cancel membership</string>
+    <string name="activate">Subscribe now</string>
+    <string name="dzd">DZD</string>
+    <string name="per_six_months">for 6 months</string>
+    <string name="payment_demo_note">Demo payment — no real charge</string>
+    <string name="vip_success">VIP activated successfully</string>
+    <string name="vip_cancelled">Membership cancelled</string>
+
+    <string name="settings">Settings</string>
+    <string name="language">Language</string>
+    <string name="arabic">العربية</string>
+    <string name="english">English</string>
+    <string name="about">About</string>
+    <string name="version">Version</string>
+    <string name="desc_profile">Manage your account, watchlist and membership</string>
+
+    <string name="episodes">Episodes</string>
+    <string name="episode">Episode %1$d</string>
+    <string name="season">Season %1$d</string>
+    <string name="similar">Similar titles</string>
+    <string name="synopsis">Story</string>
+    <string name="coming_soon">Coming soon</string>
+    <string name="coming_soon_msg">Not available yet — stay tuned</string>
+    <string name="vip_badge">VIP</string>
+    <string name="premium_content">VIP content</string>
+    <string name="free_content">Free</string>
+
+    <string name="next_episode">Next episode</string>
+    <string name="quality">Quality</string>
+    <string name="quality_auto">Auto</string>
+    <string name="speed">Speed</string>
+    <string name="player_error_vip">This content is for VIP members only</string>
+    <string name="player_error_auth">Sign in first to watch this content</string>
+    <string name="player_error_source">Could not load the video source</string>
+    <string name="go_vip">See plans</string>
+</resources>

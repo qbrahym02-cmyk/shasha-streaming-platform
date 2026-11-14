@@ -2,6 +2,7 @@
 
 # dependencies
 node_modules
+bun.lock
 /.pnp
 .pnp.*
 .yarn/*
@@ -65,3 +66,14 @@ Caddyfile
 .claude/
 .agent-browser/
 /tests/
+
+# أدوات بناء أندرويد محلية
+/android-sdk/
+/tools/
+/gradle/
+.android-sdk/
+
+# التوقيع والمفاتيح
+/android-signing/
+*.keystore
+*.jks
