@@ -2,9 +2,9 @@
 
 # شاشة | SHASHA — منصة بث متكاملة 🎬
 
-منصة بث فيديو تجارية متكاملة على غرار خدمات OTT العالمية (بدون نسخ أي علامة تجارية أو محتوى محمي) — **موقع ويب بخوادم حقيقية + تطبيق أندرويد أصلي 100% (Kotlin) + PWA**.
+منصة بث فيديو تجارية متكاملة على غرار خدمات OTT العالمية (بدون نسخ أي علامة تجارية أو محتوى محمي) — **موقع ويب بخوادم حقيقية + تطبيق أندرويد أصلي 100% (Kotlin) + تطبيق iOS أصلي 100% (SwiftUI) + PWA**.
 
-![Platform](https://img.shields.io/badge/Platform-Web%20%2B%20Native%20Android%20%2B%20PWA-00d26a) ![License](https://img.shields.io/badge/License-MIT-e8b923) ![Lang](https://img.shields.io/badge/%D9%84%D8%BA%D8%A9-%D8%B9%D8%B1%D8%A8%D9%8A%20%2B%20English-00d26a)
+![Platform](https://img.shields.io/badge/Platform-Web%20%2B%20Native%20Android%20%2B%20Native%20iOS-00d26a) ![License](https://img.shields.io/badge/License-MIT-e8b923) ![Lang](https://img.shields.io/badge/%D9%84%D8%BA%D8%A9-%D8%B9%D8%B1%D8%A8%D9%8A%20%2B%20English-00d26a)
 
 ## 🔗 الروابط الحية
 
@@ -13,6 +13,7 @@
 | 🌐 **الموقع الكامل (خوادم API حقيقية)** | https://shasha-sigma.vercel.app |
 | 📱 **تطبيق الأندرويد الأصلي v2.0.0** | `download/shasha-v2.0.0-native.apk` (12 MB) |
 | 🛒 حزمة Google Play (.aab) | `download/shasha-v2.0.0-native.aab` |
+| 🍎 مشروع تطبيق iOS الأصلي v2.0.0 (SwiftUI) | مجلد `ios/` — يُبنى بـ Xcode 16+ |
 | 📄 نسخة العرض الثابتة (GitHub Pages) | https://qbrahym02-cmyk.github.io |
 
 > الإصدار 2.0.0 هو **تطبيق أصلي كامل** (Kotlin + Jetpack Compose + Media3) يتصل بواجهات الموقع على Vercel — لم يعد تغليف ويب (TWA). بما أن مفتاح التوقيع جديد، من ثبت الإصدار القديم 1.0.0 (TWA) عليه إزالته أولًا ثم تثبيت هذا الإصدار.
@@ -27,6 +28,7 @@
 - **استكمال المشاهدة** من آخر موضع (محفوظ على الخادم) + حفظ دوري كل 5 ثوانٍ
 - **تشغيل الحلقة التالية تلقائياً** + قائمة حلقات داخل المشغل (أندرويد)
 - مشغل أندرويد: **ExoPlayer/Media3** مع جلسة وسائط (أزرار شاشة القفل) وتبديل تلقائي لمصدر احتياطي عند فشل البث
+- مشغل iOS: **AVPlayer** مع تحكم شاشة القفل/مركز التحكم (MPRemoteCommandCenter)، تشغيل خلفي، وPiP
 - الويب: ترجمات ومسارات صوتية متعددة (عند توفرها) + اختصارات لوحة مفاتيح كاملة
 
 ### 📚 كتالوج وواجهات
@@ -162,7 +164,7 @@ bash scripts/build-demo.sh   # يبني نسخة عرض ثابتة بوضع DEMO
 
 - [ ] لوحة تحكم إدارية (إدارة المحتوى والمستخدمين والإحصائيات)
 - [ ] ربط بوابات دفع جزائرية (CIB / الذهبية / بريدي موب)
-- [ ] تطبيق iOS أصلي (SwiftUI) — حاليًا iOS عبر PWA
+- [x] تطبيق iOS أصلي (SwiftUI) — مجلد `ios/` بـ Xcode 16+ (AVPlayer + PiP + تشغيل خلفي + عربي/إنجليزي)
 - [ ] تحويل فيديو FFmpeg + HLS متعدد الجودات للرفع الذاتي
 - [ ] إشعارات Push (FCM) وتنزيل دون اتصال داخل التطبيق الأصلي
 - [ ] تطبيقات Smart TV (Android TV / Tizen / webOS)
